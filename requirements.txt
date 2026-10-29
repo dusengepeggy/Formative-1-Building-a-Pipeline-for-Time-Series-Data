@@ -1,0 +1,33 @@
+# Pinned to the versions tested in the project venv (Python 3.14).
+
+# Data, modelling, plots
+pandas==3.1.0
+numpy==2.5.4
+scikit-learn==1.9.1
+joblib==1.6.0
+holidays==0.107
+matplotlib==3.11.2
+seaborn==0.13.2
+
+# API
+fastapi==0.162.0
+pydantic==2.14.1
+uvicorn==0.54.0
+
+# Databases
+SQLAlchemy==2.1.6
+PyMySQL==1.2.3
+pymongo==4.19.0
+python-dotenv==1.2.4
+
+# API client (Task 4 forecast script)
+requests==2.34.2
+
+# Tests (httpx backs FastAPI's TestClient; mongomock fakes MongoDB)
+pytest==9.2.0
+httpx==0.28.1
+mongomock==4.3.0
+
+# Notebooks (nbconvert runs them headlessly)
+ipykernel==7.4.0
+nbconvert==7.17.2
