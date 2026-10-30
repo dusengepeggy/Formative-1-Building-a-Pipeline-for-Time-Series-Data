@@ -1,0 +1,9 @@
+experiment,features,MAE,RMSE,R2,best_params,cv_MAE
+Baseline: same hour yesterday,-,5.205,7.693,0.603,,
+Baseline: same hour last week,-,6.381,9.629,0.378,,
+Benchmark: market day-ahead price,-,8.861,11.892,0.051,,
+Ridge (tuned),v1 (18),4.281,6.099,0.75,{'model__alpha': 0.1},4.762
+Random Forest (tuned),v1 (18),4.412,6.267,0.737,"{'max_depth': 16, 'min_samples_leaf': 1, 'n_estimators': 300}",4.837
+Ridge one-hot calendar (tuned),v2 (20),4.241,6.051,0.754,{'model__alpha': 100},4.805
+HistGradientBoosting (tuned),v2 (20),4.376,6.162,0.745,"{'learning_rate': 0.03, 'max_depth': 3, 'max_iter': 300, 'min_samples_leaf': 20}",4.581
+RF without operator forecasts,v1 - forecasts (15),4.769,6.648,0.703,"{'max_depth': 16, 'min_samples_leaf': 1, 'n_estimators': 300}",
