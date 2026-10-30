@@ -1,0 +1,34 @@
+---
+title: Spain hourly energy - MySQL schema (database/sql/schema.sql)
+---
+erDiagram
+    generation_sources {
+        SMALLINT source_id PK "UNSIGNED, AUTO_INCREMENT"
+        VARCHAR(64) name UK "NOT NULL"
+        ENUM category "renewable | fossil | nuclear | other"
+    }
+    energy_readings {
+        DATETIME reading_time PK "UTC hour start"
+        DOUBLE total_load_actual "NULL allowed (2 hours)"
+        DOUBLE total_load_forecast "NOT NULL, >= 0"
+        DOUBLE price_actual "NOT NULL, indexed"
+        DOUBLE price_day_ahead "NOT NULL"
+        DOUBLE forecast_solar_day_ahead "NOT NULL, >= 0"
+        DOUBLE forecast_wind_onshore_day_ahead "NOT NULL, >= 0"
+    }
+    generation_readings {
+        DATETIME reading_time PK, FK "ON DELETE CASCADE"
+        SMALLINT source_id PK, FK "UNSIGNED"
+        DOUBLE generation_mw "NOT NULL, >= 0"
+    }
+    predictions {
+        INT prediction_id PK "UNSIGNED, AUTO_INCREMENT"
+        DATETIME reading_time "UTC target hour, indexed"
+        DOUBLE predicted_price "NOT NULL"
+        VARCHAR(64) model_version "NOT NULL"
+        DATETIME created_at "DEFAULT UTC_TIMESTAMP()"
+    }
+
+    energy_readings ||--o{ generation_readings : "has generation mix"
+    generation_sources ||--o{ generation_readings : "classifies"
+    energy_readings |o..o{ predictions : "forecast for (no FK)"
