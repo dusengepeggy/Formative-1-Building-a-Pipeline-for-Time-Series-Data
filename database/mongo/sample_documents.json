@@ -1,0 +1,119 @@
+[
+  {
+    "timestamp": {
+      "$date": "2014-12-31T23:00:00Z"
+    },
+    "load": {
+      "actual": 25385.0,
+      "forecast": 26118.0
+    },
+    "price": {
+      "actual": 65.41,
+      "day_ahead": 50.1
+    },
+    "forecasts": {
+      "solar_day_ahead": 17.0,
+      "wind_onshore_day_ahead": 6436.0
+    },
+    "generation": {
+      "biomass": 447.0,
+      "fossil_brown_coal_lignite": 329.0,
+      "fossil_gas": 4844.0,
+      "fossil_hard_coal": 4821.0,
+      "fossil_oil": 162.0,
+      "hydro_pumped_storage_consumption": 863.0,
+      "hydro_run_of_river_and_poundage": 1051.0,
+      "hydro_water_reservoir": 1899.0,
+      "nuclear": 7096.0,
+      "other": 43.0,
+      "other_renewable": 73.0,
+      "solar": 49.0,
+      "waste": 196.0,
+      "wind_onshore": 6378.0
+    },
+    "date_parts": {
+      "year": 2014,
+      "month": 12,
+      "dayofweek": 2,
+      "hour": 23
+    }
+  },
+  {
+    "timestamp": {
+      "$date": "2017-10-23T17:00:00Z"
+    },
+    "load": {
+      "actual": 31103.0,
+      "forecast": 30786.0
+    },
+    "price": {
+      "actual": 116.8,
+      "day_ahead": 71.42
+    },
+    "forecasts": {
+      "solar_day_ahead": 881.0,
+      "wind_onshore_day_ahead": 2523.0
+    },
+    "generation": {
+      "biomass": 320.0,
+      "fossil_brown_coal_lignite": 982.0,
+      "fossil_gas": 13551.0,
+      "fossil_hard_coal": 3763.0,
+      "fossil_oil": 303.0,
+      "hydro_pumped_storage_consumption": 0.0,
+      "hydro_run_of_river_and_poundage": 475.0,
+      "hydro_water_reservoir": 3277.0,
+      "nuclear": 5896.0,
+      "other": 58.0,
+      "other_renewable": 93.0,
+      "solar": 752.0,
+      "waste": 283.0,
+      "wind_onshore": 2532.0
+    },
+    "date_parts": {
+      "year": 2017,
+      "month": 10,
+      "dayofweek": 0,
+      "hour": 17
+    }
+  },
+  {
+    "timestamp": {
+      "$date": "2018-12-31T22:00:00Z"
+    },
+    "load": {
+      "actual": 24455.0,
+      "forecast": 24424.0
+    },
+    "price": {
+      "actual": 69.88,
+      "day_ahead": 64.27
+    },
+    "forecasts": {
+      "solar_day_ahead": 26.0,
+      "wind_onshore_day_ahead": 3117.0
+    },
+    "generation": {
+      "biomass": 290.0,
+      "fossil_brown_coal_lignite": 0.0,
+      "fossil_gas": 6926.0,
+      "fossil_hard_coal": 2166.0,
+      "fossil_oil": 163.0,
+      "hydro_pumped_storage_consumption": 108.0,
+      "hydro_run_of_river_and_poundage": 1069.0,
+      "hydro_water_reservoir": 1686.0,
+      "nuclear": 6075.0,
+      "other": 61.0,
+      "other_renewable": 92.0,
+      "solar": 31.0,
+      "waste": 287.0,
+      "wind_onshore": 3651.0
+    },
+    "date_parts": {
+      "year": 2018,
+      "month": 12,
+      "dayofweek": 0,
+      "hour": 22
+    }
+  }
+]
