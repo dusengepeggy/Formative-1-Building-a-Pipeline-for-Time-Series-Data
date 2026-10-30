@@ -1,0 +1,54 @@
+@startuml erd
+' ER diagram of database/sql/schema.sql (MySQL 8). All DATETIME values are UTC.
+' Render: java -jar plantuml.jar database/erd/erd.puml   (writes erd.png next to it)
+' smetana is PlantUML's built-in layout engine, so Graphviz is not required.
+!pragma layout smetana
+hide circle
+skinparam linetype ortho
+skinparam shadowing false
+skinparam defaultFontName Arial
+skinparam class {
+  BackgroundColor white
+  BorderColor #555555
+  ArrowColor #555555
+}
+
+entity "generation_sources" as generation_sources {
+  * source_id : SMALLINT UNSIGNED <<PK>>
+  --
+  * name : VARCHAR(64) <<UNIQUE>>
+  * category : ENUM(renewable, fossil, nuclear, other)
+}
+
+entity "energy_readings" as energy_readings {
+  * reading_time : DATETIME <<PK>>
+  --
+  total_load_actual : DOUBLE (nullable)
+  * total_load_forecast : DOUBLE
+  * price_actual : DOUBLE <<idx>>
+  * price_day_ahead : DOUBLE
+  * forecast_solar_day_ahead : DOUBLE
+  * forecast_wind_onshore_day_ahead : DOUBLE
+}
+
+entity "generation_readings" as generation_readings {
+  * reading_time : DATETIME <<PK, FK>>
+  * source_id : SMALLINT UNSIGNED <<PK, FK>>
+  --
+  * generation_mw : DOUBLE
+}
+
+entity "predictions" as predictions {
+  * prediction_id : INT UNSIGNED <<PK>>
+  --
+  * reading_time : DATETIME <<idx>>
+  * predicted_price : DOUBLE
+  * model_version : VARCHAR(64)
+  * created_at : DATETIME
+}
+
+energy_readings ||--o{ generation_readings : "has 14 per hour\n(ON DELETE CASCADE)"
+generation_sources ||--o{ generation_readings : "classifies"
+energy_readings .. predictions : "same hour\n(no FK: may forecast\nunrecorded hours)"
+
+@enduml
